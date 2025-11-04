@@ -214,7 +214,7 @@ def monitor_ultrasonic():
         except Exception as e:
             print("Sensor read error:", e)
 
-        time.sleep(1)
+        time.sleep(0.5)
 
 
 
