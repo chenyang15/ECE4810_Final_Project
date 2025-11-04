@@ -1,0 +1,315 @@
+html,body{
+  height:100%;margin:0;overflow:hidden;
+  font-family:"Orbitron",sans-serif;
+  background:#000814;color:#e0f7fa;
+}
+
+/* === Background pulse === */
+.background{
+  position:absolute;width:100%;height:100%;
+  background:radial-gradient(circle at 50% 50%,#00e5ff25 0%,transparent 70%);
+  animation:pulse 6s infinite alternate;
+}
+@keyframes pulse{from{transform:scale(1);opacity:.9;}to{transform:scale(1.2);opacity:1;}}
+
+/* === Card === */
+.card{
+  position:absolute;top:50%;left:50%;
+  transform:translate(-50%,-50%);
+  width:400px;padding:40px;
+  background:rgba(255,255,255,0.08);
+  backdrop-filter:blur(20px);
+  border:1px solid #00e5ff66;
+  border-radius:20px;
+  box-shadow:0 0 30px #18ffff44;
+  text-align:center;
+}
+.subtitle{color:#80deea;margin-bottom:25px;}
+input{
+  width:80%;padding:12px;margin:8px;
+  background:rgba(255,255,255,0.1);
+  border:none;border-radius:8px;
+  color:#fff;font-size:16px;outline:none;text-align:center;
+}
+button{
+  margin-top:20px;width:150px;padding:12px;
+  border:none;border-radius:8px;
+  background:linear-gradient(90deg,#00e5ff,#18ffff);
+  color:#001018;font-weight:bold;cursor:pointer;
+  transition:transform .2s,box-shadow .2s;
+}
+button:hover{
+  transform:scale(1.05);
+  box-shadow:0 0 20px #18ffffaa;
+}
+#status{margin-top:25px;font-size:18px;min-height:24px;}
+
+/* === Glowing ring + random orbs === */
+.neon-ring{
+  position:absolute;top:50%;left:50%;
+  width:350px;height:350px;transform:translate(-50%,-50%);
+  border-radius:50%;border:4px solid #18ffffcc;
+  box-shadow:0 0 50px #18ffffaa,0 0 100px #18ffff44 inset;
+  overflow:visible;pointer-events:none;
+}
+.bubble{
+  position:absolute;border-radius:50%;
+  background:radial-gradient(circle at 30% 30%,#18ffff,#00e5ff44);
+  box-shadow:0 0 25px #18ffffaa;
+  opacity:1;transform:scale(1);
+  transition:transform 2.5s linear,opacity 2.5s ease-out;
+}
+canvas{filter:drop-shadow(0 0 15px #18ffffaa);}
+html,body {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-family: "Orbitron", sans-serif;
+  background: #000814;
+  color: #e0f7fa;
+}
+
+/* Background glow */
+.background {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 50% 50%, #00e5ff25 0%, transparent 70%);
+  animation: pulse 6s infinite alternate;
+}
+@keyframes pulse {
+  from { transform: scale(1); opacity: 0.9; }
+  to   { transform: scale(1.2); opacity: 1; }
+}
+
+/* Glass card */
+.card {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  padding: 40px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid #00e5ff66;
+  border-radius: 20px;
+  box-shadow: 0 0 30px #18ffff44;
+  text-align: center;
+}
+
+.subtitle { color: #80deea; margin-bottom: 25px; }
+
+input {
+  width: 80%;
+  padding: 12px;
+  margin: 8px;
+  background: rgba(255,255,255,0.1);
+  border: none;
+  border-radius: 8px;
+  color: #ffffff;
+  font-size: 16px;
+  outline: none;
+  text-align: center;
+}
+
+button {
+  margin-top: 20px;
+  width: 150px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(90deg,#00e5ff,#18ffff);
+  color: #001018;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform .2s, box-shadow .2s;
+}
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #18ffffaa;
+}
+
+#status { margin-top: 25px; font-size: 18px; min-height: 24px; }
+
+/* ======================
+   Futuristic Bubble Ring
+   ====================== */
+.neon-ring {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 350px;
+  height: 350px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  border: 3px solid #00e5ff55;
+  box-shadow: 0 0 40px #18ffff66;
+  animation: ringRotate 10s linear infinite;
+  overflow: visible;
+}
+
+/* little bubbles orbit and detach */
+.neon-ring::before,
+.neon-ring::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  background: #18ffffcc;
+  border-radius: 50%;
+  box-shadow:
+    0 0 10px #18ffff,
+    0 0 20px #18ffff,
+    0 0 30px #18ffff80;
+  animation: bubbleOrbit 3s linear infinite;
+}
+
+/* ====== Stationary glowing circle ====== */
+.neon-ring {
+position: absolute;
+top: 50%;
+left: 50%;
+width: 320px;
+height: 320px;
+transform: translate(-50%, -50%);
+border-radius: 50%;
+border: 4px solid #18ffffcc;
+box-shadow:
+  0 0 50px #18ffffaa,
+  0 0 100px #18ffff44 inset;
+overflow: visible;
+pointer-events: none;
+}
+
+/* bubbles spawned dynamically */
+.bubble {
+position: absolute;
+border-radius: 50%;
+background: radial-gradient(circle at 30% 30%, #18ffff, #00e5ff44);
+box-shadow: 0 0 25px #18ffffaa;
+opacity: 1;
+transform: scale(1);
+transition:
+  transform 2.5s linear,
+  opacity 2.5s ease-out;
+}
+
+
+/* main ring rotation */
+@keyframes ringRotate {
+  from { transform: translate(-50%, -50%) rotate(0deg); }
+  to   { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+/* orbit & detach motion */
+@keyframes bubbleOrbit {
+  0%   { transform: rotate(0deg) translateX(180px) scale(1); opacity:1; }
+  70%  { transform: rotate(250deg) translateX(240px) scale(0.8); opacity:0.6; }
+  100% { transform: rotate(360deg) translateX(300px) scale(0.2); opacity:0; }
+}
+
+@keyframes bubbleOrbit2 {
+  0%   { transform: rotate(180deg) translateX(140px) scale(1); opacity:1; }
+  60%  { transform: rotate(300deg) translateX(220px) scale(0.7); opacity:0.5; }
+  100% { transform: rotate(540deg) translateX(280px) scale(0.1); opacity:0; }
+}
+
+canvas {
+  filter: drop-shadow(0 0 15px #18ffffaa);
+}
+
+/* Smooth menu button glow */
+#menu-buttons button {
+  margin: 10px;
+  width: 180px;
+  font-size: 16px;
+}
+
+#menu-buttons button:hover {
+  box-shadow: 0 0 25px #18ffffaa, inset 0 0 10px #18ffff66;
+  transform: scale(1.05);
+}
+
+#role {
+  color: #80deea;
+  margin-bottom: 25px;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+canvas {
+  filter: drop-shadow(0 0 15px #18ffffaa);
+}
+
+/* Smooth menu button glow */
+#menu-buttons button {
+margin: 10px;
+width: 180px;
+font-size: 16px;
+}
+
+#menu-buttons button:hover {
+box-shadow: 0 0 25px #18ffffaa, inset 0 0 10px #18ffff66;
+transform: scale(1.05);
+}
+
+#role {
+color: #80deea;
+margin-bottom: 25px;
+font-size: 18px;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+/* ==============================
+   LOCKDOWN OVERLAY (fast throbbing)
+   ============================== */
+   #lockscreen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(200, 0, 0, 0.9);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    color: #fff;
+    z-index: 9999;
+    font-family: "Orbitron", sans-serif;
+    text-align: center;
+    animation: redPulse 0.6s infinite alternate ease-in-out;
+    transition: background 0.3s ease;
+  }
+  
+  #lockscreen h1 {
+    font-size: 3.2em;
+    margin-bottom: 0.2em;
+    text-shadow: 0 0 25px #ff0000, 0 0 50px #ff0000aa;
+  }
+  
+  #lockscreen p {
+    font-size: 1.2em;
+    opacity: 0.9;
+    letter-spacing: 1px;
+  }
+  
+  /* fast throbbing red background */
+  @keyframes redPulse {
+    0% {
+      background: radial-gradient(circle at center, #ff0000aa 0%, #6d0000 90%);
+    }
+    100% {
+      background: radial-gradient(circle at center, #6d0000 0%, #ff0000aa 90%);
+    }
+  }
+  
+  
+  
+  
+

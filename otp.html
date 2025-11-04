@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GuoBank OTP</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="background"><div class="neon-ring"></div></div>
+  <div class="card">
+    <h1 style="color:#e7fdfd;">Enter Verification Code</h1>
+    <p class="subtitle" id="countdown">60 s remaining</p>
+    <canvas id="circle" width="120" height="120" style="margin:10px auto;display:block;"></canvas>
+    <input id="otp" type="text" maxlength="6" placeholder="Enter 6-digit OTP" />
+    <button onclick="submitOtp()">CONFIRM</button>
+    <div id="status"></div>
+  </div>
+
+  <script src="/eel.js"></script>
+  <script src="otp.js"></script>
+  <script src="global.js"></script>
+  
+  <div id="lockscreen">
+    <h1>ATM LOCKED</h1>
+    <p>Unauthorized access detected.</p>
+  </div>
+  
+</body>
+</html>
+
+
+
